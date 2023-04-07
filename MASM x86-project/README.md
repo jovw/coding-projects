@@ -1,4 +1,5 @@
-# Program Description
+# Project Instructions
+### Program Description
 Write and test a MASM program to perform the following tasks (check the Requirements section for specifics on program modularization):
 
 * Implement and test two macros for string processing. These macros should use Irvine’s ReadString to get input from the user, and WriteString procedures to display output.
@@ -19,7 +20,7 @@ Write and test a MASM program to perform the following tasks (check the Requirem
 * Your ReadVal will be called within the loop in main. Do not put your counted loop within ReadVal.
 
 
-# Program Requirements
+### Program Requirements
 1. User’s numeric input must be validated the hard way:
     a. Read the user's input as a string and convert the string to numeric form.
     b. If the user enters non-digits other than something which will indicate sign (e.g. ‘+’ or ‘-‘), or the number is too large for 32-bit registers, an error message should be displayed and the number should be discarded.
