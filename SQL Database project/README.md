@@ -12,3 +12,10 @@ Gill Coliseum hosts events for 5 sports (women and men’s basketball, wrestling
 * The structure of the app.py code was based on while the imports, database connection commands, listener were copied from the CS340 Flask Starter app on 7/25/23, specifically the bsg_people_app/app.py at https://github.com/osu-cs340-ecampus/flask-starter-app/blob/89e5a326cb1e5cfe6b87168be1ffad4fb3e33673/bsg_people_app/app.py.
 * The structure of the forms for each entity template were based on the CS340 Flask Starter app on 7/25/23, specifically people.j2 at https://github.com/osu-cs340-ecampus/flask-starter-app/blob/89e5a326cb1e5cfe6b87168be1ffad4fb3e33673/bsg_people_app/templates/people.j2 and edit_people.j2 at https://github.com/osu-cs340-ecampus/flask-starter-app/blob/89e5a326cb1e5cfe6b87168be1ffad4fb3e33673/bsg_people_app/templates/edit_people.j2
 * The styling, navigation, queries, and form content are original.
+
+## Schema
+![schema](https://github.com/jovw/coding-projects/assets/104602094/9cfb912a-e1ff-40c5-a8ce-45b91c01ed9c)
+
+
+
+
