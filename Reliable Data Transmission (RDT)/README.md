@@ -1,6 +1,7 @@
 # Reliable Data Transmission (RDT)
 
 ## Overview
+My RDT program is implemented in Python. For this coding project, I have developed the RDT layer, enabling the transmission of string data through an unreliable channel within a simulated environment. The project tests the effectiveness of data transfer in scenarios involving potential issues like out-of-order packets, dropped packets, packet delays, and data errors.
 
 ## Running the Program
 This program has been written in Python 3.
