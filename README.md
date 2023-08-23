@@ -8,7 +8,7 @@ This checkers game project is written in Python. This program allows two users t
 This project is written in Assembly language. This program prompts users to enter 10 signed integers that are only 32 bits long, with a built-in validation system to ensure accurate inputs. It provides a list of the 10 entered integers, calculates the truncated average, and concludes with a farewell message. The program is designed to optimize processing time and produce accurate results, making it an efficient and effective tool for integer manipulation.
 
 ## Reliable Data Transmission (RDT)
-My RDT program is written in Python. For this coding project, I wrote the RDT layer that allows the transfer of string data through an unreliable channel in a simulated environment. The projects test the quality of data transfer where there is a potential for out-of-order packets, dropped packets, packet delays, and data errors. 
+My RDT program is implemented in Python. For this coding project, I have developed the RDT layer, enabling the transmission of string data through an unreliable channel within a simulated environment. The project tests the effectiveness of data transfer in scenarios involving potential issues like out-of-order packets, dropped packets, packet delays, and data errors.
 
 # Usage
 To use these programs, please follow the instructions provided in their respective folders.
