@@ -1,5 +1,9 @@
-# Project Instructions
-### Program Description
+# Signed Integer Validation and Calculation (MASM x86)
+
+## Overview
+This project is written in Assembly language. This program prompts users to enter 10 signed integers that are only 32 bits long, with a built-in validation system to ensure accurate inputs. It provides a list of the 10 entered integers, calculates the truncated average, and concludes with a farewell message. The program is designed to optimize processing time and produce accurate results, making it an efficient and effective tool for integer manipulation.
+
+## Program Description
 Write and test a MASM program to perform the following tasks (check the Requirements section for specifics on program modularization):
 
 * Implement and test two macros for string processing. These macros should use Irvine’s ReadString to get input from the user, and WriteString procedures to display output.
