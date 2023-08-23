@@ -1,0 +1,172 @@
+<!-- Citation: 
+Structure copied from Class lecture file bsg_HTML_UI.zip in CS340 accessed 7/20/23
+      Source URL https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Ticket</title>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+
+    <script>
+      // JavaScript function to update the hidden input with the selected ticket holder ID
+      function updateTicketHolderID(selectedID, selectedName) {
+          document.getElementById("ticketHolderID").value = selectedID;
+          document.getElementById("ticketHolderFullName").textContent = "Full Name: " + selectedName;
+      }
+
+      function removeTicketHolderID() {
+            document.getElementById("ticketHolderID").value = ""; // Clear the input value
+            document.getElementById("ticketHolderFullName").textContent = "Full Name: "; // Reset the Full Name display
+        }
+    </script>
+</head>
+
+<body>
+    <div class="header">
+    <div class="text">
+        <a href="/" class="index_nav"><h1>Tracking tickets by event for Gill Coliseum</h1></a>
+            <nav>
+                <a href="../events" class="nav_button">Events</a>
+                <a href="../eventOutcomes" class="nav_button">Event Outcomes</a>
+                <a href="../eventoutcomesteams" class="nav_button">Event Outcomes Teams</a>
+                <a href="../teams" class="nav_button">Teams</a>
+                <a href="../tickets" class="nav_button">Tickets</a>
+                <a href="../ticketTypes" class="nav_button">Ticket Types</a>
+                <a href="../ticketHolders" class="nav_button">Ticket Holders</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="entities">
+      <h2> Edit ticket </h2>
+        <!--Structure copied from Class lecture file bsg_HTML_UI.zip in CS340 accessed 7/20/23
+      Source URL https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626-->
+
+        <div id="browse">
+            <table border="1" cellpadding="5">
+            {% if ticketData %}
+                <thead>
+                    <tr>
+                        <!-- Iterate through each key in the first entry to get the column name -->
+                        {% for key in ticketData[0].keys() %}
+                                    
+                            <!-- Create a <th> tag with the key inside of it, for the rest of the header row -->
+                            <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+
+                        {% endfor %}
+                        </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <!-- Now, iterate through every item in data -->
+                        {% for item in ticketData %}
+
+                            <!-- <td><a href="/updateTicket/{{item.teamID}}" class="CRUD">Edit</a></td> -->
+                            <!-- <td><a href="/deleteTeam/{{item.teamID}}" class="CRUD">Delete</a></td> -->
+
+                            <!-- Then iterate through every key in the current item dictionary -->
+                            {% for key in item.keys() %}
+                                <!-- Create a <td> element with the value of that key in it -->
+                                <td> {{item[key]}} </td> 
+                            {% endfor %} 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %} 
+
+            </table>
+        </div> <!-- browse --> 
+        <p>&nbsp;</p>
+
+        <div id="update">
+            <form method="POST" id = "searchTicketHolder">
+                <fieldset class="fields">
+                <legend class="table_header"> Search Ticket Holder Name </legend>
+                    Search a ticket holder name to update to transfer ticket to a new ticket holder
+                    <br><br>
+                    <label> First Name: </label> <input type="text" name="firstName" required> <br>
+                    <label> Last Name: </label> <input type="text" name="lastName" required>
+                  <br>
+                    <input class="btn" type="submit" name="searchTicketHolder" value="Search">
+                  <br>
+                    <div id="searchResults">
+                        {% if searchData %}
+                            <h3>Search Results:</h3>
+                            <table border="1" cellpadding="5">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Ticket Holder ID</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col">Last Name</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in searchData %}
+                                    <tr>
+                                        <td>{{ item['ticketHolderID'] }}</td>
+                                        <td>{{ item['firstName'] }}</td>
+                                        <td>{{ item['lastName'] }}</td>
+                                        <td>
+                                            <button class="CRUD" type="button" onclick="updateTicketHolderID('{{ item['ticketHolderID'] }}', '{{ item['firstName']}} {{ item['lastName']}}')">Select</button>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% else %}
+                            {% if noResults %}
+                                <h3>Search Results:</h3>
+                                <p>No results found for the provided name.<br> If you want to add a ticket for this name, please go add your name under the Ticket Holders tab.</p>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </fieldset>
+            </form>
+
+            <form method="POST" name="updateTicket" id="updateTicket" action="/updateTicket/{{ ticketData[0].ticketID }}">
+                <fieldset>
+                <legend class="table_header"> Edit Ticket </legend>
+                   <input type="hidden" name="ticketID" value="{{ ticketData[0].ticketID }}">
+                   <input type="hidden" name="seatID" value="{{ ticketData[0]['Seat ID'] }}">
+                    <input type="hidden" name="ticketHolderID" id="ticketHolderID" value="{{ ticketData[0]['Ticket Holder ID'] }}" >
+                        <p 
+                            id="ticketHolderFullName"> Full Name: {{ ticketData[0]['Full Name'] }}
+                            <button class="CRUD" type="button" onclick="removeTicketHolderID()">Remove Ticket Holder</button>
+                        </p>
+                  <label> Event: </label> 
+                    <select name="eventID" id="eventID" placeholder="" required>
+                      {% for aEvent in eventsData%}
+                        {% if aEvent['eventID'] == ticketData[0]['Event ID'] %}
+                            <option value="{{aEvent['eventID']}}" selected> Playing {{aEvent['visitingTeam']}} on {{aEvent['startDateTime']}}</option>
+                        {% else %}
+                            <option value="{{aEvent['eventID']}}"> Playing {{aEvent['visitingTeam']}} on {{aEvent['startDateTime']}}</option>
+                        {% endif %}
+                      {% endfor %}  
+                    </select>
+                  <br>
+                  <br>
+                  <label> Ticket Type: </label> 
+                    <select name="ticketTypeDropdown" id="ticketTypeDropdown" placeholder="" required>
+                        {% for aTicketType in ticketTypeData %}
+                            {% if aTicketType['ticketTypeID'] == ticketData[0]['Ticket Type ID'] %}
+                                <option value="{{ aTicketType['ticketTypeID'] }}" selected> {{ aTicketType['ticketType'] }} (${{ aTicketType['price'] }})</option>
+                            {% else %}  
+                                <option value="{{ aTicketType['ticketTypeID'] }}"> {{ aTicketType['ticketType'] }} (${{ aTicketType['price'] }})</option>  
+                            {% endif %}
+                        {% endfor %} 
+                    </select>
+                </fieldset>
+            <br>
+                <input class="btn" type="submit" id="updateTicket" name="updateTicket" value="Update Ticket">
+                <input class="btn" type="button" onclick="history.back()" value="Cancel">
+            </form> 
+        </div><!-- update -->
+
+</body>
+<footer>
+  &copy;2023 Juanette van Wyk & Cara Walter 
+</footer>
+</html>

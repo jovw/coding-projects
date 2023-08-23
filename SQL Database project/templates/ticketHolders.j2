@@ -1,0 +1,96 @@
+<!-- Citation: 
+Structure copied from Class lecture file bsg_HTML_UI.zip in CS340 accessed 7/20/23
+      Source URL https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626-->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Holders</title>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+    <div class="text">
+        <a href="/" class="index_nav"><h1>Tracking tickets by event for Gill Coliseum</h1></a>
+            <nav>
+                <a href="events" class="nav_button">Events</a>
+                <a href="eventOutcomes" class="nav_button">Event Outcomes</a>
+                <a href="eventoutcomesteams" class="nav_button">Event Outcomes Teams</a>
+                <a href="teams" class="nav_button">Teams</a>
+                <a href="tickets" class="nav_button">Tickets</a>
+                <a href="ticketTypes" class="nav_button">Ticket Types</a>
+                <a href="ticketHolders" class="selected_nav_button">Ticket Holders</a>
+            </nav>
+        </div>
+    </div>
+
+    <div class="entities">
+        <h2> Ticket Holders </h2>
+        <!--Structure copied from Class lecture file bsg_HTML_UI.zip in CS340 accessed 7/20/23
+      Source URL https://canvas.oregonstate.edu/courses/1922991/pages/exploration-web-application-technology?module_item_id=23329626-->
+
+
+        <div id="browse">
+            <table border="1" cellpadding="5">
+
+            {% if ticketHolderData %}
+                <thead>
+                    <tr>
+                        <!-- Iterate through each key in the first entry to get the column name -->
+                        {% for key in ticketHolderData[0].keys() %}
+                                    
+                            <!-- Create a <th> tag with the key inside of it, for the rest of the header row -->
+                            <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+
+                        {% endfor %}
+                        </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <!-- Now, iterate through every item in data -->
+                        {% for item in ticketHolderData %}
+
+                            <!--<td><a href="/updateTeam/{{item.teamID}}" class="CRUD">Edit</a></td> -->
+                            <!-- <td><a href="/deleteTeam/{{item.teamID}}" class="CRUD">Delete</a></td> -->
+
+                            <!-- Then iterate through every key in the current item dictionary -->
+                            {% for key in item.keys() %}
+                                <!-- Create a <td> element with the value of that key in it -->
+                                <td> {{item[key]}} </td> 
+                            {% endfor %} 
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %} 
+
+            </table>
+        </div> <!-- browse --> 
+        <p>&nbsp;</p>
+
+        <div id="insert">
+            <form method="POST" id="addTicketHolder" action="/ticketHolders">
+                <legend class="table_header"> Add Ticket Holder </legend>
+                <fieldset class="fields">
+                    <label class="required"> First Name: </label> <input type="text" name="firstName" required>
+                    <label class="required"> Last Name: </label> <input type="text" name="lastName" required>
+                    <br>
+                    <br>
+                    <label> Phone: </label> <input type="text" name="phone">
+                    <br>
+                    <br>
+                    <label class="required"> Email: </label> <input type="text" name="email" required>
+                </fieldset>
+                <br>
+                    <input class="btn" type="submit" id="addTicketHolder" value="Add Ticket Holder" name="addTicketHolder">
+            </form> 
+        </div><!-- insert -->
+    </div>
+
+
+</body>
+<footer>
+  &copy;2023 Juanette van Wyk & Cara Walter 
+</footer>
+</html>

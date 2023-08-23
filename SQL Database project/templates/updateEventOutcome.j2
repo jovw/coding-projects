@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Event Outcome</title>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body >
+<!--navigation original work-->
+<div class="header">
+    <div class="text">
+      <a href="/" class="index_nav"><h1>Tracking tickets by event for Gill Coliseum</h1></a>
+        <nav>
+            <a href="../events" class="nav_button">Events</a>
+            <a href="../eventOutcomes" class="nav_button">Event Outcomes</a>
+            <a href="../eventoutcomesteams" class="nav_button">Event Outcomes Teams</a>
+            <a href="../teams" class="nav_button">Teams</a>
+            <a href="../tickets" class="nav_button">Tickets</a>
+            <a href="../ticketTypes" class="nav_button">Ticket Types</a>
+            <a href="../ticketHolders" class="nav_button">Ticket Holders</a>
+        </nav>
+    </div>
+  </div>
+
+<div class="entities">
+      <!--Citation: Structure copied from flask starter app for CS340 accessed 7/25/23
+      Source URLs https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
+    https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+    -->
+        <div id="update">
+            <form method="POST" id="updateEventOutcomeForm" action="/updateEventOutcome/{{ eventOutcomesData[0].eventOutcomeID }}">
+            <legend class="table_header"> Update Event Outcome and Event Outcomes Teams </legend>
+            <fieldset class="fields">
+                    <input type="hidden" name="eventOutcomeID" id="eventOutcomeID" value="{{eventOutcomesData[0].eventOutcomeID}}" required>
+                    <label > ID: </label> {{eventOutcomesData[0].eventOutcomeID}}
+                    <br>
+                 <label class="required"> Game Played on: </label>
+                <select name="eventDateDropdown" id="eventDateDropdown" placeholder="" required pattern="[0-4]{1}">
+                <!-- Event Dates from eventsData tuple -->
+                <option value="{{eventOutcomesData[0].eventID}}">{{eventOutcomesData[0].startDateTime}} with {{eventOutcomesData[0].visitingTeam}}</option>
+                {% for availEvent in availableEventsData %}
+                  {% for anEventDate in eventsData %}
+                    {% if anEventDate['eventID'] == availEvent['eventID'] %}
+                      <option value="{{ anEventDate['eventID'] }}"> {{anEventDate['startDateTime']}} with {{anEventDate['visitingTeam']}}</option> 
+                    {% endif %}
+                  {% endfor %}
+                {% endfor %}
+                </select>
+                <br>
+                <br>
+                <label class="required"> Winning Team: </label>
+                <select name="winningTeamDropdown" id="winningTeamDropdown" placeholder="">
+                    <!-- Winning Team options will be populated from eventOutcomesData -->
+                    <option value="{{winningTeam[0].teamID}}" selected> {{winningTeam[0].teamName}}</option>
+                    <option value="{{losingTeam[0].teamID}}"> {{losingTeam[0].teamName}}</option>
+                    {% for aTeam in teamsData %}
+                        {% if (aTeam['teamID'] != winningTeam[0].teamID and
+                                aTeam['teamID'] != losingTeam[0].teamID) %}
+                            <option value="{{aTeam['teamID']}}"> {{aTeam['teamName']}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <br>
+                <label class="required"> Losing Team: </label>
+                <select name="losingTeamDropdown" id="losingTeamDropdown" placeholder="">
+                    <!-- Losing Team options will be populated from eventOutcomesData-->
+                    <option value="{{losingTeam[0].teamID}}" selected> {{losingTeam[0].teamName}}</option>
+                    <option value="{{winningTeam[0].teamID}}"> {{winningTeam[0].teamName}}</option>
+                    {% for aTeam in teamsData %}
+                        {% if (aTeam['teamID'] != winningTeam[0].teamID and
+                                aTeam['teamID'] != losingTeam[0].teamID) %}
+                            <option value="{{aTeam['teamID']}}"> {{aTeam['teamName']}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <br>
+                <br>
+                <label class="required"> Winning Score: </label>
+                    <input type="number" id="winningScore" name="winningScore" pattern="[0-9]" value="{{eventOutcomesData[0].winningScore}}" required>
+                <br>
+                <label class="required"> Losing Score: </label>
+                    <input type="number" id= "losingScore" name="losingScore" pattern="[0-9]" value="{{eventOutcomesData[0].losingScore}}" required>
+                <br>
+            </fieldset>
+            <br>
+            <input class="btn" type="submit" id="updateEventOutcome" value="Update" name="updateEventOutcome">
+            <a href='../eventOutcomes'><input class="btn" type="button" value="Cancel"></a>
+        </form>
+          </div><!-- update -->
+
+  </div>
+</body>
+<footer>
+  &copy;2023 Juanette van Wyk & Cara Walter 
+</footer>
+</html>

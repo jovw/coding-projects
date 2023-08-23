@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deleted Event Outcome</title>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!--navigation original work-->
+<div class="header">
+    <div class="text">
+      <a href="/" class="index_nav"><h1>Tracking tickets by event for Gill Coliseum</h1></a>
+        <nav>
+            <a href="../events" class="nav_button">Events</a>
+            <a href="../eventOutcomes" class="nav_button">Event Outcomes</a>
+            <a href="../eventoutcomesteams" class="nav_button">Event Outcomes Teams</a>
+            <a href="../teams" class="nav_button">Teams</a>
+            <a href="../tickets" class="nav_button">Tickets</a>
+            <a href="../ticketTypes" class="nav_button">Ticket Types</a>
+            <a href="../ticketHolders" class="nav_button">Ticket Holders</a>
+        </nav>
+    </div>
+  </div>
+
+<div class="entities">
+      <!--Citation: Structure copied from flask starter app for CS340 accessed 7/25/23
+      Source URL https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/edit_people.j2
+    -->
+
+    <div id="delete" style="display: block">
+      <form method="POST" id="deleteEventOutcomeForm" action="/deleteEventOutcome">
+        <legend class="table_header"> Delete Event Outcome and Event Outcome Teams </legend>
+        <fieldset class="fields">
+          <p>Are you sure you wish to delete the following event outcome and event outcome teams?</p>
+          <input type="hidden" name="eventOutcomeID" id="eventOutcomeID" value="{{ eventOutcomeID }}">
+          <label> Event Outcome ID: </label> {{ eventOutcomeID }}
+          <br>
+          <label>  Event:  </label> Game played on {{ eventOutcomesData[0].startDateTime }}
+          <br>
+          <label> Winning Team: </label> {{winningTeam[0].teamName}} with score: {{eventOutcomesData[0].winningScore}}
+          <br>
+          <label> Losing Team: </label> {{losingTeam[0].teamName}} with score: {{eventOutcomesData[0].losingScore}}
+        </fieldset>
+        <br>
+        <!-- The form now submits to the delete_eventoutcome route when Delete Event button is clicked -->
+        <input class="btn" type="submit" id="deleteEventOutcome" value="Delete" name="deleteEventOutcome">
+        <a href='../eventOutcomes'><input class="btn" type="button" value="Cancel"></a>
+      </form> 
+    </div>
+
+  </div>
+</body>
+<footer>
+  &copy;2023 Juanette van Wyk & Cara Walter 
+</footer>
+</html>

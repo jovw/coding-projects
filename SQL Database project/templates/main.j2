@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events for Gill Coliseum</title>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="header">
+        <div class="text">
+            <h1>Tracking tickets by event for Gill Coliseum</h1>
+            <nav>
+                <a href="events" class="nav_button">Events</a>
+                <a href="eventOutcomes" class="nav_button">Event Outcomes</a>
+                <a href="eventoutcomesteams" class="nav_button">Event Outcomes Teams</a>
+                <a href="teams" class="nav_button">Teams</a>
+                <a href="tickets" class="nav_button">Tickets</a>
+                <a href="ticketTypes" class="nav_button">Ticket Types</a>
+                <a href="ticketHolders" class="nav_button">Ticket Holders</a>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="description">
+        <h2>Project Outline</h2>
+        <p class="outline">
+            Gill Coliseum hosts events for 5 sports (women and men’s basketball, wrestling, women’s gymnastics, and 
+            volleyball) at Oregon State University in Corvallis, OR. With a capacity of 9,301, and each sport hosting 
+            multiple events (at least 5) per season, the managers of Gill Coliseum would benefit from a web based database 
+            for tracking tickets and ticket holders by event as well as teams and outcomes for each event. This database 
+            will focus on events with up to two teams for volleyball only. Ticket holder information is optional as it will not 
+            be collected for tickets purchased at the event. With this database, managers could evaluate the 
+            draw of different visiting teams, event day and time, season ticket vs event ticket sales, and look at 
+            trends over a season relative to team performance.
+        </p>
+    </div>
+    <div class="card-container">
+        <h2>Entity Descriptions</h2>
+        <div class="row_1">
+            <a href="events" class="card_link"><div class="card">
+                <h3>Events</h3>
+                <p>Major components, such as date, time and teams of each event at Gill Coliseum.</p>
+            </div></a>
+            <a href="eventOutcomes" class="card_link"><div class="card">
+                <h3>Event Outcomes</h3>
+                <p>Team placement and scores per event. </p>
+            </div></a>
+            <a href="eventoutcomesteams" class="card_link"><div class="card">
+                <h3>Event Outcomes Teams</h3>
+                <p>Intersection table between Event Outcomes and Teams that played at given event. </p>
+            </div>
+        </div></a>
+        <div class="row_2">
+            <a href="teams" class="card_link"><div class="card">
+                <h3>Teams</h3>
+                <p>List of teams participating in events at Gill Coliseum.</p>
+            </div></a>
+            <a href="tickets" class="card_link"><div class="card">
+                <h3>Tickets</h3>
+                <p>Records of the details of each ticket for given event at Gill Coliseum.</p>
+            </div></a>
+            <a href="ticketHolders" class="card_link"><div class="card">
+                <h3>Ticket Holders</h3>
+                <p> Records of the details of each person that buys tickets to an event.</p>
+            </div></a>
+            <a href="ticketTypes" class="card_link"><div class="card">
+                <h3>Ticket Types</h3>
+                <p>Records of the price for each type of ticket available to purchase. </p>
+            </div></a>
+        </div>
+    </div>
+</body>
+<footer>
+    &copy;2023 Juanette van Wyk & Cara Walter 
+</footer>
+</html>

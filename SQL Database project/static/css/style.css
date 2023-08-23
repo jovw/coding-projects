@@ -1,0 +1,212 @@
+* {
+    font-family: 'Roboto',sans-serif;
+}
+
+:root {
+    --color1: #1f1d1c;
+    --color2: #bcb2b2;
+    --color3: #000000;
+    --color4: #c3390b;
+    --color5: #2d2b2a;
+  }
+
+body {
+    background-color: var(--color1);
+    color: var(--color2);
+}
+
+p {
+    color: var(--color2);
+}
+
+/* INDEX SCREEN */
+
+/* Center align the header and links */
+.header {
+    background-color: var(--color3);
+    color: var(--color4);
+    width: 100%; 
+    height: 150px;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-bottom: 2px solid var(--color5);
+}
+
+/* Add some margin to separate the header from the description */
+.text {
+    margin-bottom: 20px;
+}
+
+.nav_button {
+    text-decoration: none;
+    color: var(--color2);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.nav_button:hover {
+    text-decoration: underline;
+    color: var(--color4);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.selected_nav_button {
+    text-decoration: underline;
+    color: var(--color4);
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.description {
+    margin-top: 200px;
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+h2 {
+    color: var(--color4);
+    text-align: left;
+}
+
+/* Styles for the container */
+.card-container {
+    margin-top: 60px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 100px;
+}
+
+.row_1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards in row 1 */
+    grid-gap: 10px; /* Gap between cards */
+    margin-bottom: 10px;
+  }
+
+.row_2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cards in row 2 */
+    grid-gap: 10px; /* Gap between cards */
+}
+  
+  /* Card styles */
+.card {
+    color: var(--color4);
+    padding: 20px;
+    border: 2px solid var(--color5); 
+    border-radius: 10px; 
+    background-color: var(--color3); 
+    text-align: center; 
+    height: 100px;
+}
+
+.card:hover {
+    color: var(--color4);
+    padding: 20px;
+    border: 2px solid var(--color3); 
+    border-radius: 10px; 
+    background-color: var(--color5); 
+    text-align: center; 
+    height: 100px;
+}
+  
+/* Header styles */
+.card h3 {
+    margin-bottom: 10px; /* Add some space between header and paragraph */
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: var(--color4);
+}
+
+  .card_link {
+    text-decoration: none;
+  }
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color3);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-top: 2px solid var(--color5);
+  }
+
+.entities {
+    margin-top: 200px;
+    margin-bottom: 100px;
+}
+
+.index_nav {
+    text-decoration: none;
+    color: var(--color4);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border-collapse: collapse;
+    border: 1px solid;
+    padding: 7px;
+}
+
+.table_header {
+    font-weight: 800;
+    font-size: 20px;
+    margin-bottom: 5px;
+    color: var(--color4);
+}
+
+.btn {
+    background-color: var(--color2);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: 2px solid;
+    text-decoration: none;
+    color: var(--color3);
+}
+
+.btn:hover {
+    background-color: var(--color4);
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    border: 2px solid;
+    text-decoration: none;
+}
+
+.CRUD {
+    text-decoration: none;
+    color: var(--color4);
+}
+
+/*Styling required fields for forms*/
+/*Citation: CS290 Form elements Replit accessed 8/11/23 from https://replit.com/@PamVanLonden/Form-elements and https://canvas.oregonstate.edu/courses/1914615/pages/exploration-form-style?module_item_id=23038372*/
+label.required:after{
+    content:" *";
+    color:var(--color4);
+  }
+
+*:required {
+    border:2px solid #38b000;
+  }

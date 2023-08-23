@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+ <div class="header">
+    <div class="text">
+      <a href="/" class="index_nav"><h1>Tracking tickets by event for Gill Coliseum</h1></a>
+        <nav>
+            <a href="events" class="selected_nav_button">Events</a>
+            <a href="eventOutcomes" class="nav_button">Event Outcomes</a>
+            <a href="eventoutcomesteams" class="nav_button">Event Outcomes Teams</a>
+            <a href="teams" class="nav_button">Teams</a>
+            <a href="tickets" class="nav_button">Tickets</a>
+            <a href="ticketTypes" class="nav_button">Ticket Types</a>
+            <a href="ticketHolders" class="nav_button">Ticket Holders</a>
+        </nav>
+    </div>
+  </div>
+
+  <div class="entities">
+      <!--Citation: Structure of python if and for statements, and table copied from flask starter app for CS340 accessed 7/25/23
+      Source URL https://github.com/osu-cs340-ecampus/flask-starter-app/blob/master/bsg_people_app/templates/people.j2
+    -->
+    <div id="browse">
+    <h2> Events</h2>
+        <table border="1" cellpadding="5">
+          {% if eventsData %}
+          <thead>
+            <tr>
+              <!--<th></th> -->
+              <!--<th></th> -->
+              <!-- Iterate through each key in the first entry to get the column name -->
+              {% for key in eventsData[0].keys() %}
+                <!-- Create a <th> tag with the key inside of it, for the rest of the header row -->
+                <th scope="col" data-field="{{ key }}" data-filter-control="input">{{ key }}</th>
+              <!-- End of this for loop -->
+              {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- Now, iterate through every item in data -->
+            {% for item in eventsData %}
+                <!-- <td><a href="/updateEvent/{{item.eventID}}" class="CRUD">Edit</a></td> -->
+                <!--<td><a href="/deleteEvent/{{item.eventID}}" class="CRUD">Delete</a></td> -->
+						    <!-- Then iterate through every key in the current item dictionary -->
+                {% for key in item.keys() %}
+						      <!-- Create a <td> element with the value of that key in it -->
+						      <td> {{item[key]}} </td> 
+				        {% endfor %} 
+          </tr>
+		        {% endfor %} 
+        </tbody>
+      {% endif %} 
+        </table>
+        <p>&nbsp;</p>
+    </div> <!-- browse -->
+
+        <div id="insert">
+            <form method="POST" id="addEventForm" action="/events">
+                <legend class="table_header">Add Event</legend>
+                  <fieldset class="fields">
+                    <label class="required"> Event Date: </label> <input type="date" name="eventDate" required>
+                    <br>
+                    <br>
+                    <label class="required"> Start Time: </label> <input type="time" name="startTime"  required>
+                    <label class="required"> End Time: </label> <input type="time" name="endTime"  required>
+                    <br>
+                    <br>
+                    <label class="required"> Visiting Team: </label> 
+                    <select name="visitingTeamDropdown" id="visitingTeamDropdown" placeholder="" required>
+                    <!-- Populate all teams from database -->
+                        <option value="" disabled selected>-Select a team-</option>
+                    {% for aTeam in teamsData %}
+                      {% if aTeam['teamID'] != 1 %}
+                        <option value="{{aTeam['teamID']}}"> {{aTeam['teamName']}}</option>
+                      {% endif %}
+                    {% endfor %}
+                    </select>
+              </fieldset>
+              <br>
+                  <input class="btn" type="submit" id="addEvent" value="Add Event" name="addEvent">
+            </form> 
+        </div><!-- insert -->
+  </div>
+</body>
+<footer>
+  &copy;2023 Juanette van Wyk & Cara Walter 
+</footer>
+</html>
