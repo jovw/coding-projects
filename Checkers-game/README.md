@@ -1,4 +1,10 @@
-# Portifolio Project Instructions
+# Checkers Game
+
+## Overview
+This checkers game project is written in Python. This program allows two users to play a 2D chess game, featuring a visual display of the board layout in the form of an array. The program implements a range of chess piece movements, and validates move conditions for regular, king, and triple king pieces. The game also checks for the winning conditions, ensuring an accurate and enjoyable gaming experience for users.
+
+
+## Project Instructions
 
 For this project you will write a class called Checkers that allows two people to play the game of Checkers. This is a variation of the original Checkers game with modified rules. 
 Read about the Game rules in Checkers.pdf
