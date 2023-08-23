@@ -5,6 +5,7 @@ This repository contains a collection of coding projects completed during my tim
 * Checkers game project
   * Written in Python
 * MASM x86 project
+  * Written in Assembly
 * Reliable Data Transmission project
   * Written in Python
 * MySQL database project
