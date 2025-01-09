@@ -1,0 +1,66 @@
+{
+  "rules": [
+    {
+      "title": "Rule 1: Permission Required",
+      "description": "Before starting the game, the user must grant all necessary permissions.",
+      "imageRes": "one"
+    },
+    {
+      "title": "Rule 2: Start the Game",
+      "description": "The game begins on the Start Page, where the user can view the rules and start the game by pressing the Start button.",
+      "imageRes": "two"
+    },
+    {
+      "title": "Rule 3: Clue Navigation",
+      "description": "Navigate through the clues by solving each one. Each clue provides a hint, and the user can track their time with an animated timer.",
+      "imageRes": "three"
+    },
+    {
+      "title": "Rule 4: Location Verification",
+      "description": "Use the 'Found It!' button to check if you are at the correct location. The game uses GPS and the Haversine formula to verify your position.",
+      "imageRes": "four"
+    },
+    {
+      "title": "Rule 5: Continue or Complete",
+      "description": "If the clue is solved, either continue to the next clue or, if it is the final clue, complete the game and view your total time.",
+      "imageRes": "five"
+    },
+    {
+      "title": "Rule 6: Exit the Game",
+      "description": "You can quit the game at any time by using the quit button, which returns you to the Start Page.",
+      "imageRes": "six"
+    }
+  ],
+  "clues": [
+    {
+      "number": 1,
+      "text": "Find a place where nature is nurtured, where plants from every corner of the world find a home, and where tranquility is cultivated among the flora.",
+      "hint": "Look for the grand conservatory where exotic plants thrive under a glass dome.",
+      "correctLocation": [47.6364, -122.2958],
+      "funFactId": 1,
+      "imageRes": "clue_image"
+    },
+    {
+      "number": 2,
+      "text": "Where water cascades down from heights, a natural spectacle awaits, creating a symphony of sound that echoes through the forest. Find this spot where mist fills the air, and the power of nature is on full display.",
+      "hint": "The falls are named after the thunderous sound they make as they plunge 268 feet into the river below.",
+      "correctLocation": [47.5417, -121.8377],
+      "funFactId": 2,
+      "imageRes": "snoqualmie_falls"
+    }
+  ],
+  "funFacts": [
+    {
+      "id": 1,
+      "locationName": "Washington Park Arboretum",
+      "description": "The Washington Park Arboretum, nestled in Seattle, Washington, spans 230 acres and is home to a vast collection of trees, shrubs, and plants from around the globe. Established in 1934, this living museum is managed by the University of Washington Botanic Gardens and the City of Seattle. The arboretum features several themed gardens, including a Japanese Garden, known for its serene atmosphere and traditional landscaping. One of the most remarkable features is the Witt Winter Garden, which showcases plants that bloom or have interesting textures and colors during the winter months, offering year-round interest for visitors.",
+      "imageRes": "washington_park_found"
+    },
+    {
+      "id": 2,
+      "locationName": "Snoqualmie Falls",
+      "description": "Snoqualmie Falls, located near the town of Snoqualmie in Washington State, is one of the most famous and photographed waterfalls in the Pacific Northwest. Standing at 268 feet tall, it is nearly 100 feet taller than Niagara Falls. The falls are a significant cultural and spiritual landmark for the Snoqualmie Tribe, who believe the falls are the birthplace of the world. The area surrounding the falls offers scenic viewpoints and trails, providing visitors with multiple perspectives of this majestic natural wonder. Snoqualmie Falls also serves as a hydroelectric power source, with a plant that has been in operation since 1899, blending natural beauty with technological innovation.",
+      "imageRes": "snoqualmie_falls_found"
+    }
+  ]
+}

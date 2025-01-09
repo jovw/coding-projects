@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Course List</string>
+    <string name="assignment_3">Juanette van Wyk</string>
+    <string name="course_161_title">Intro to CS I</string>
+    <string name="course_162_title">Intro to CS II</string>
+    <string name="course_225_title">Discrete Structures</string>
+    <string name="course_261_title">Data Structures</string>
+    <string name="course_271_title">Computer Architecture</string>
+    <string name="course_290_title">Web Development</string>
+    <string name="course_325_title">Analysis of Algorithms</string>
+    <string name="course_340_title">Intro to Databases</string>
+    <string name="course_344_title">Operating Systems I</string>
+    <string name="course_361_title">Software Engineering I</string>
+    <string name="course_362_title">Software Engineering II</string>
+    <string name="course_467_title">Online Capstone Project</string>
+</resources>
