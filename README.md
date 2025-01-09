@@ -1,6 +1,11 @@
 # School Coding Projects
 This repository contains a collection of coding projects completed while getting my degree. The projects vary in language and complexity, demonstrating my proficiency in a range of programming skills.
 
+## Capstone Project
+* Marketing Content Generator
+  * Senior year final project.
+  * For this project I was lead developer for the front end team
+
 ## List of Projects
 * Checkers game project
   * Written in Python
