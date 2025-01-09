@@ -1,0 +1,27 @@
+.dropdown-group {
+  margin-bottom: 15px;
+}
+
+.input-spacing {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.input-bar {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+  background-color: var(--backgroundColor3);
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+.input-dropdown {
+  appearance: none; 
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}

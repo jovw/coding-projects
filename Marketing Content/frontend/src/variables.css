@@ -1,0 +1,22 @@
+:root {
+    /* colors */
+    --primary: #598392;
+    --onPrimary: #EDEDE9;
+    --secondary: #936059;
+    --onSecondary: #EDEDE9;
+    --backgroundColor1: #E3D5CA;
+    --backgroundColor2: #F5EBE0;
+    --backgroundColor3: #EFEBE6;
+    --secondary-70: rgba(147, 96, 89, 0.7);
+    --secondary-30: rgba(147, 96, 89, 0.3);
+    --table-header-color: #cdb9b4;
+
+    /* text */
+    --display-size: 32px;
+    --headline-small-size: 25px;
+    --title-size: 20px;
+    --body-medium-size: 15px;
+    --form-titles: 15px;
+
+    --body-medium-weight: 300;
+  }

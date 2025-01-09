@@ -1,0 +1,121 @@
+.generate-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+  width: calc(100% - 100px);
+  margin: 0 50px;
+  padding-bottom: 100px;
+}
+
+.generate-content-title {
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.content-body {
+  display: flex;
+  flex-direction: row;
+  width: calc(100%);
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.left-content-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  box-sizing: border-box;
+}
+
+.right-content-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  justify-content: center;
+}
+
+.generate-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -10px;
+  margin-bottom: 30px;
+}
+
+.multiSelectContainer {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.multiSelectContainer .searchWrapper {
+  padding: 10px;
+  border: 1px solid var(--secondary);
+  background-color: var(--backgroundColor3);
+  border-radius: 10px;
+}
+
+.multiSelectContainer input {
+  border: none;
+  background: transparent;
+  width: 100%;
+}
+
+.multiSelectContainer input:focus {
+  outline: none;
+}
+
+.multiSelectContainer .chip {
+  padding: 4px 10px;
+  background: var(--secondary);
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--backgroundColor3);
+  white-space: nowrap;
+}
+
+.multiSelectContainer .optionListContainer {
+  width: 100%;
+  background: var(--backgroundColor3);
+  border: 1px solid var(--secondary);
+  border-radius: 4px;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.multiSelectContainer ul {
+  display: block;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  max-height: 250px;
+  overflow-y: auto;
+  border: none;
+}
+
+.multiSelectContainer li {
+  padding: 10px 10px;
+}
+
+.multiSelectContainer li:hover,
+.multiSelectContainer .highlightOption {
+  background: var(--secondary) !important;
+  color: var(--backgroundColor3) !important;
+  cursor: pointer;
+}
+
+.multiSelectContainer .checkbox {
+  margin-right: 10px;
+}
+
+.multiSelectContainer .notFound {
+  padding: 10px;
+  display: block;
+}

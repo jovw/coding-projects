@@ -1,0 +1,8 @@
+.business-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 40vw;
+    gap: 10px;
+    text-align: left;
+}

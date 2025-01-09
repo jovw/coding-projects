@@ -1,0 +1,1922 @@
+{
+	"info": {
+		"_postman_id": "233572cc-6ce8-492e-8bfb-41859c40089d",
+		"name": "content-gen-col",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34176403"
+	},
+	"item": [
+		{
+			"name": "Logout 1st user with Tokens",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/google/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"google",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout 2nd user with Tokens",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/auth/google/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"google",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 1st user by SUB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/sub",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"sub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 2nd user by SUB",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/users/sub",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"sub"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product to user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\": \"Nishs Succulent Collection 3\",\r\n    \"productDescription\": \"A curated assortment of low-maintenance succulents\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product to 2nd user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\": \"nonvolatile Succulent Collection 3\",\r\n    \"productDescription\": \"A curated assortment of low-maintenance succulents\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add product to user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productName\": \"Nishs new something\",\r\n    \"productDescription\": \"A curated assortment of low-maintenance succulents\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del all products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del 1st users product via id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/products/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"products",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a users product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a 2nd users product",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Audience to 1st user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"audienceName\": \"happy peeps\",\r\n    \"audienceDescription\": \"People that are happy\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Audience to 2nd user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"audienceName\": \"some peeps\",\r\n    \"audienceDescription\": \"not all people\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Audience to 1st user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"audienceName\": \"all peeps\",\r\n    \"audienceDescription\": \"People...all of them\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Audience",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del all audiences",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Del 1st users audience via id Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/audiences/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"audiences",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a users audiences",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a 2nd users audiences",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/audiences",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"audiences"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Company to 1st user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\": \"Nishs company name\",\r\n    \"companyDescription\": \"Nishs Comany is nishs\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Company to 2nd user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"companyName\": \"NV company name\",\r\n    \"companyDescription\": \"NVs Comany is non volatiles\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 1st users company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 2nd users company",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+        {
+			"name": "Add generated post content",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const newAccessToken = pm.response.headers.get('new-accesstoken');\r",
+							"const newIdToken = pm.response.headers.get('new-idtoken');\r",
+							"const newRefreshToken = pm.response.headers.get('new-refreshtoken');\r",
+							"\r",
+							"if (newAccessToken) {\r",
+							"    pm.environment.set('accessToken2', newAccessToken);\r",
+							"}\r",
+							"\r",
+							"if (newIdToken) {\r",
+							"    pm.environment.set('idToken2', newIdToken);\r",
+							"}\r",
+							"\r",
+							"if (newRefreshToken) {\r",
+							"    pm.environment.set('refreshToken2', newRefreshToken);\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+                "auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "idToken",
+						"value": "Bearer {{idToken2}}",
+						"type": "text"
+					},
+					{
+						"key": "refreshToken",
+						"value": "Bearer {{refreshToken2}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"postTitle\": \"Soft, Natural Care for Your Little One\",\n  \"postCaption\": \"New parents, we understand how precious your little one's skin is. Our gentle and natural baby wipes offer the perfect solution for a worry-free clean. Soft on baby's skin, tough on messes—trust in nature's touch for delicate care. 🌿👶 #MomAndDadApproved #NaturalBabyCare\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/contents/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"contents",
+						"post"
+					]
+				}
+			},
+			"response": []
+        }
+	]
+}

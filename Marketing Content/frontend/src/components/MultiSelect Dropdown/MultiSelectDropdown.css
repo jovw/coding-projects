@@ -1,0 +1,70 @@
+.multi-select-dropdown {
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.multi-select-dropdown label {
+  font-size: var(--form-titles);
+  color: rgb(0, 0, 0, 0.6);
+  margin-bottom: 5px;
+  display: flex;
+}
+
+.dropdown-header {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--secondary);
+  border-radius: 10px;
+  background-color: var(--backgroundColor3);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.dropdown-header:hover {
+  border-color: #888;
+}
+
+.dropdown-list {
+  width: 100%;
+  border: 1px solid var(--secondary);
+  border-radius: 0 0 10px 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: var(--backgroundColor3);
+  position: absolute;
+  z-index: 1000; /* Ensure dropdown is above other elements */
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.dropdown-option {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-option:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-option input {
+  margin-right: 10px;
+}
+
+.arrow {
+  font-size: 14px;
+  transition: transform 0.2s ease;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
+}

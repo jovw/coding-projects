@@ -4,8 +4,15 @@ This repository contains a collection of coding projects completed while getting
 ## List of Projects
 * Checkers game project
   * Written in Python
+* Cloud Dev
+  * Written in Python
+* Kotlin
+  * Smaller Mobile projects build in Kotlin 
 * MASM x86 project
   * Written in Assembly
+* Operating Systems
+  * Various projects built in C
+  * Small Shell project build for Portfolio 
 * Reliable Data Transmission project
   * Written in Python
 * MySQL database project

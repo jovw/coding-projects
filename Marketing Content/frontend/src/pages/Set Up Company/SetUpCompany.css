@@ -1,0 +1,54 @@
+.content-container-company-setup {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    width: calc(100% - 100px);
+    margin: 0 50px;
+
+    padding-bottom: 100px;
+
+    /* background-color: aqua; */
+}
+
+.form-part1-container{
+    display: flex;
+    flex-direction: row;
+    width: calc(100%);
+    gap: 100px;
+    justify-content: space-between;
+
+    /* background-color: blueviolet; */
+}
+
+.left-form-part1-container {
+    /* background-color: coral; */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.right-form-part2-container {
+    /* background-color: chocolate; */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+}
+
+.set-up-company-image {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.add-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.setup-content-table-wrapper {
+    width: calc(100%);
+}
