@@ -42,11 +42,9 @@ int main(int argc, char *argv[])
   char *line = NULL;
   size_t n = 0; /* hold the len of &line */
   for (;;) {
-prompt:; /* This will allow you to come back to the start of the loop unconditionally */
-    /* TODO: Manage background processes */
+prompt:; 
     manage_background_processes();
 
-    /* TODO: prompt */
     if (input == stdin) { // if intput is stdin then interactive, else non-interactive
       if (isatty(STDIN_FILENO)) { // Check if in interactive mode
         char* ps1 = getenv("PS1");
@@ -91,8 +89,3 @@ prompt:; /* This will allow you to come back to the start of the loop unconditio
   fclose(input);
   exit(exit_status);
 }
-
-// char *words[MAX_WORDS] = {NULL};
-// char* file_in = NULL;
-// char* file_out = NULL;
-// char* file_append = NULL;
